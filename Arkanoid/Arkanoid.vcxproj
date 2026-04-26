@@ -134,7 +134,10 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Application.cpp" />
+    <ClCompile Include="Ball.cpp" />
+    <ClCompile Include="CollisionSystem.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="Paddle.cpp" />
     <ClCompile Include="SceneFactory.cpp" />
     <ClCompile Include="SceneGame.cpp" />
     <ClCompile Include="SceneManager.cpp" />
@@ -142,7 +145,12 @@
   <ItemGroup>
     <ClInclude Include="Application.h" />
     <ClInclude Include="AppSettings.h" />
+    <ClInclude Include="Ball.h" />
+    <ClInclude Include="CollisionSystem.h" />
+    <ClInclude Include="GameObject.h" />
     <ClInclude Include="IScene.h" />
+    <ClInclude Include="ObjectType.h" />
+    <ClInclude Include="Paddle.h" />
     <ClInclude Include="resource.h" />
     <ClInclude Include="SceneCommand.h" />
     <ClInclude Include="SceneFactory.h" />

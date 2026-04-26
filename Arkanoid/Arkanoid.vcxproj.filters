@@ -25,6 +25,12 @@
     <Filter Include="Файлы заголовков\Scene\Scenes">
       <UniqueIdentifier>{2994a907-c22c-45ae-9648-01da46ebb8c8}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Файлы заголовков\Game">
+      <UniqueIdentifier>{777617b4-8ae3-4219-a834-fecefa37b9e5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Файлы заголовков\Game\GameObject">
+      <UniqueIdentifier>{8dc63f92-9907-4749-b6ad-7f4a7f40f96a}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -40,6 +46,15 @@
       <Filter>Исходные файлы</Filter>
     </ClCompile>
     <ClCompile Include="SceneManager.cpp">
+      <Filter>Исходные файлы</Filter>
+    </ClCompile>
+    <ClCompile Include="Paddle.cpp">
+      <Filter>Исходные файлы</Filter>
+    </ClCompile>
+    <ClCompile Include="Ball.cpp">
+      <Filter>Исходные файлы</Filter>
+    </ClCompile>
+    <ClCompile Include="CollisionSystem.cpp">
       <Filter>Исходные файлы</Filter>
     </ClCompile>
   </ItemGroup>
@@ -73,6 +88,21 @@
     </ClInclude>
     <ClInclude Include="SceneManager.h">
       <Filter>Файлы заголовков</Filter>
+    </ClInclude>
+    <ClInclude Include="GameObject.h">
+      <Filter>Файлы заголовков\Game\GameObject</Filter>
+    </ClInclude>
+    <ClInclude Include="Paddle.h">
+      <Filter>Файлы заголовков\Game\GameObject</Filter>
+    </ClInclude>
+    <ClInclude Include="ObjectType.h">
+      <Filter>Файлы заголовков\Game\GameObject</Filter>
+    </ClInclude>
+    <ClInclude Include="Ball.h">
+      <Filter>Файлы заголовков\Game\GameObject</Filter>
+    </ClInclude>
+    <ClInclude Include="CollisionSystem.h">
+      <Filter>Файлы заголовков\Game\GameObject</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
