@@ -7,6 +7,6 @@ namespace Arkanoid::Game {
 	class CollisionSystem
 	{
 	public:
-		static void check(std::vector<std::unique_ptr<GameObject>>& objects);
+		static void check(std::vector<GameObject*>& objects);
 	};
 }

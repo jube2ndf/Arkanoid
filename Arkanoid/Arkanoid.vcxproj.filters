@@ -80,9 +80,6 @@
     <ClInclude Include="SceneCommand.h">
       <Filter>Файлы заголовков\Scene</Filter>
     </ClInclude>
-    <ClInclude Include="SceneGame.h">
-      <Filter>Файлы заголовков</Filter>
-    </ClInclude>
     <ClInclude Include="SceneFactory.h">
       <Filter>Файлы заголовков\Scene</Filter>
     </ClInclude>
@@ -103,6 +100,9 @@
     </ClInclude>
     <ClInclude Include="CollisionSystem.h">
       <Filter>Файлы заголовков\Game\GameObject</Filter>
+    </ClInclude>
+    <ClInclude Include="SceneGame.h">
+      <Filter>Файлы заголовков\Scene\Scenes</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

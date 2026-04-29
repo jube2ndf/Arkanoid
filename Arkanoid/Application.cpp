@@ -2,6 +2,7 @@
 #include "AppSettings.h"
 #include "SceneFactory.h"
 #include "SceneManager.h"
+#include "SceneGame.h"
 
 Arkanoid::App::Application::Application(const std::string& appName)
 	: window(sf::VideoMode(App::Settings::WINDOW_WIDTH, App::Settings::WINDOW_HEIGTH), appName)
@@ -21,7 +22,7 @@ void Arkanoid::App::Application::Run()
     Arkanoid::Scene::SceneFactory factory;
     //init factory
     {
-        
+        factory.RegisterScene<Scene::Game::SceneGame>(EnumScene::SceneType::Game);
     }
     Scene::SceneManager sceneManager(factory);
 

@@ -1,6 +1,6 @@
 #include "CollisionSystem.h"
 
-void Arkanoid::Game::CollisionSystem::check(std::vector<std::unique_ptr<GameObject>>& objects)
+void Arkanoid::Game::CollisionSystem::check(std::vector<GameObject*>& objects)
 {
     for (size_t i = 0; i < objects.size(); ++i)
     {
