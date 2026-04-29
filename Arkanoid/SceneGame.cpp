@@ -34,6 +34,7 @@ Arkanoid::Scene::SceneCommand Arkanoid::Scene::Game::SceneGame::update(float dt)
     this->_paddle.update(dt);
     this->_ball.update(dt);
     handleWallCollision();
+    handlePaddleCollision();
     Arkanoid::Game::CollisionSystem::check(collidableObjects);
     return Scene::SceneCommand();
 }
@@ -69,14 +70,14 @@ void Arkanoid::Scene::Game::SceneGame::handleWallCollision()
         _ball.bounceY();//GameOver
     }
 
-    auto bounds = this->_paddle.getBounds();
+    bounds = this->_paddle.getBounds();
 
     if (bounds.left < 0.f)
     {
         this->_paddle.setPosition({ bounds.width / 2.f, this->_paddle.getPosition().y });
     }
 
-    if (bounds.left + bounds.width > App::Settings::WINDOW_HEIGTH)
+    if (bounds.left + bounds.width> App::Settings::WINDOW_WIDTH)
     {
         this->_paddle.setPosition(
             {
@@ -89,40 +90,39 @@ void Arkanoid::Scene::Game::SceneGame::handleWallCollision()
 
 void Arkanoid::Scene::Game::SceneGame::handlePaddleCollision()
 {
-    {
-        if (!_ball.getBounds().intersects(_paddle.getBounds()))
-            return;
+    if (!_ball.getBounds().intersects(_paddle.getBounds()))
+        return;
 
-        float paddleX = _paddle.getPosition().x;
+    float paddleX = _paddle.getPosition().x;
 
-        float paddleWidth = _paddle.getBounds().width;
+    float paddleWidth = _paddle.getBounds().width;
 
-        float ballX = _ball.getPosition().x;
+    float ballX = _ball.getPosition().x;
 
-        float hitPos =
-            (ballX - paddleX)
-            /
-            (paddleWidth / 2.f);
+    float hitPos =
+        (ballX - paddleX)
+        /
+        (paddleWidth / 2.f);
 
-        sf::Vector2f velocity = _ball.getVelocity();
+    sf::Vector2f velocity = _ball.getVeloсity();
 
-        float speed =
-            std::sqrt(
-                velocity.x * velocity.x +
-                velocity.y * velocity.y
-            );
+    float speed =
+        std::sqrt(
+            velocity.x * velocity.x +
+            velocity.y * velocity.y
+        );
 
-        velocity.x = speed * hitPos;
+    velocity.x = speed * hitPos;
 
-        velocity.y = -std::abs(velocity.y);
+    velocity.y = -std::abs(velocity.y);
 
-        _ball.setVelocity(velocity);
+    _ball.setVeloсity(velocity);
 
-        _ball.setPosition({
-            _ball.getPosition().x,
-            _paddle.getBounds().top
-            - _ball.getBounds().height
-            });
-    }
+    _ball.setPosition({
+        _ball.getPosition().x,
+        _paddle.getBounds().top
+        - _ball.getBounds().height
+        });
+}
 
 

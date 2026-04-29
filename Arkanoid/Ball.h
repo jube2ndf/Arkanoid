@@ -15,8 +15,8 @@ namespace Arkanoid::Game {
         sf::Vector2f getPosition() const;
         void setPosition(sf::Vector2f pos);
 
-        sf::Vector2f getVelosity() const;
-        void setVelosity(sf::Vector2f vel);
+        sf::Vector2f getVeloсity() const;
+        void setVeloсity(sf::Vector2f vel);
 
         // Унаследовано через GameObject
         void drow(sf::RenderWindow& window) override;

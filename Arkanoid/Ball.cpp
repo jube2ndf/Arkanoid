@@ -38,12 +38,12 @@ void Arkanoid::Game::Ball::setPosition(sf::Vector2f pos)
     this->_ball.setPosition(pos);
 }
 
-sf::Vector2f Arkanoid::Game::Ball::getVelosity() const
+sf::Vector2f Arkanoid::Game::Ball::getVeloсity() const
 {
     return this->_moveVector;
 }
 
-void Arkanoid::Game::Ball::setVelosity(sf::Vector2f vel)
+void Arkanoid::Game::Ball::setVeloсity(sf::Vector2f vel)
 {
     this->_moveVector = vel;
 }
