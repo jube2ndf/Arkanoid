@@ -3,7 +3,7 @@
 Arkanoid::Scene::SceneManager::SceneManager(Scene::SceneFactory& factory)
 	:_factory(factory)
 {
-	this->requestPush(EnumScene::SceneType::WinGame);
+	this->requestPush(EnumScene::SceneType::Game);
 }
 
 void Arkanoid::Scene::SceneManager::HandelInput(sf::Event & event)
