@@ -3,11 +3,9 @@
 #include "SceneType.h"
 
 namespace Arkanoid::Scene {
-	struct SceneCommand
+	class SceneCommand
 	{
-		EnumScene::SceneRequest action;
-		EnumScene::SceneType id;
-
+	public:
 		SceneCommand() : action(EnumScene::SceneRequest::None), id(EnumScene::SceneType::None) {
 
 		}
@@ -19,5 +17,16 @@ namespace Arkanoid::Scene {
 			action(action), id(id) {
 
 		}
+
+		EnumScene::SceneRequest getAction() {
+			return this->action;
+		}
+		EnumScene::SceneType getId() {
+			return this->id;
+		}
+
+	private:
+		EnumScene::SceneRequest action;
+		EnumScene::SceneType id;
 	};
 }

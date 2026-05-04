@@ -57,6 +57,18 @@
     <ClCompile Include="CollisionSystem.cpp">
       <Filter>Исходные файлы</Filter>
     </ClCompile>
+    <ClCompile Include="Brick.cpp">
+      <Filter>Исходные файлы</Filter>
+    </ClCompile>
+    <ClCompile Include="GameObject.cpp">
+      <Filter>Исходные файлы</Filter>
+    </ClCompile>
+    <ClCompile Include="SceneQuestionYesNo.cpp">
+      <Filter>Исходные файлы</Filter>
+    </ClCompile>
+    <ClCompile Include="WinGame.cpp">
+      <Filter>Исходные файлы</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="resource.h">
@@ -102,6 +114,21 @@
       <Filter>Файлы заголовков\Game\GameObject</Filter>
     </ClInclude>
     <ClInclude Include="SceneGame.h">
+      <Filter>Файлы заголовков\Scene\Scenes</Filter>
+    </ClInclude>
+    <ClInclude Include="Brick.h">
+      <Filter>Файлы заголовков\Game\GameObject</Filter>
+    </ClInclude>
+    <ClInclude Include="MenuFunctionality.h">
+      <Filter>Файлы заголовков\Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="QuestionYesNo.h">
+      <Filter>Файлы заголовков\Scene\EnumScene</Filter>
+    </ClInclude>
+    <ClInclude Include="SceneQuestionYesNo.h">
+      <Filter>Файлы заголовков\Scene\Scenes</Filter>
+    </ClInclude>
+    <ClInclude Include="WinGame.h">
       <Filter>Файлы заголовков\Scene\Scenes</Filter>
     </ClInclude>
   </ItemGroup>

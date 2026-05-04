@@ -1,7 +1,15 @@
 #include "Ball.h"
+#include <iostream>
+
+Arkanoid::Game::Ball::Ball()
+{
+    std::cout << "Defalt";
+}
 
 Arkanoid::Game::Ball::Ball(float radius, sf::Vector2f pos)
 {
+    this->_moveVector = { -1,-1 };
+    this->_speed = Arkanoid::App::Settings::GAME_BALL_SPEED;
     this->_ball.setRadius(radius);
     auto bouns = this->_ball.getLocalBounds();
     this->_ball.setOrigin(
@@ -28,7 +36,7 @@ void Arkanoid::Game::Ball::bounceY()
     };
 }
 
-sf::Vector2f Arkanoid::Game::Ball::getPosition() const
+sf::Vector2f Arkanoid::Game::Ball::getPosition()
 {
     return this->_ball.getPosition();
 }
@@ -68,7 +76,7 @@ Arkanoid::Game::ObjectType Arkanoid::Game::Ball::getType() const
     return ObjectType::Ball;
 }
 
-void Arkanoid::Game::Ball::onCollision(GameObject& other)
+float Arkanoid::Game::Ball::GetSpeed()
 {
-
+    return this->_speed;
 }

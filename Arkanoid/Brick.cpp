@@ -1,0 +1,37 @@
+#include "Brick.h"
+#include "AppSettings.h"
+
+Arkanoid::Game::Brick::Brick(sf::Vector2f position)
+{
+    this->_brick.setSize({ App::Settings::BRICK_WIDTH, App::Settings::BRICK_HEIGTH });
+    this->_brick.setFillColor(sf::Color::Blue);
+    sf::FloatRect bounds = this->_brick.getLocalBounds();
+    this->_brick.setOrigin(bounds.left + bounds.width / 2.0f,
+        bounds.top + bounds.height / 2.0f);
+    this->_brick.setPosition(position);
+}
+
+void Arkanoid::Game::Brick::drow(sf::RenderWindow& window)
+{
+    window.draw(this->_brick);
+}
+
+Arkanoid::Game::ObjectType Arkanoid::Game::Brick::getType() const
+{
+    return ObjectType::Brick;
+}
+
+sf::FloatRect Arkanoid::Game::Brick::getBounds() const
+{
+    return this->_brick.getGlobalBounds();
+}
+
+sf::Vector2f Arkanoid::Game::Brick::getPosition()
+{
+    return this->_brick.getPosition();
+}
+
+void Arkanoid::Game::Brick::setPosition(sf::Vector2f position)
+{
+    this->_brick.setPosition(position);
+}

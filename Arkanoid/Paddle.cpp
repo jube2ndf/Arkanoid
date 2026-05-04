@@ -1,7 +1,11 @@
 #include "Paddle.h"
 
+Arkanoid::Game::Paddle::Paddle()
+{}
+
 Arkanoid::Game::Paddle::Paddle(float width, float height, sf::Vector2f position)
 {
+    this->_speed = Arkanoid::App::Settings::GAME_PADDLE_SPEED;
     this->_paddle.setSize({ width, height });
     sf::FloatRect bounds = this->_paddle.getLocalBounds();
     this->_paddle.setOrigin(bounds.left + bounds.width / 2.0f,
@@ -33,9 +37,9 @@ sf::FloatRect Arkanoid::Game::Paddle::getBounds() const
 void Arkanoid::Game::Paddle::update(float dt)
 {
     sf::Vector2f move{0,0};
-    if (sf::Keyboard::isKeyPressed(sf::Keyboard::Left))
+    if (sf::Keyboard::isKeyPressed(sf::Keyboard::Left) || sf::Keyboard::isKeyPressed(sf::Keyboard::A))
         move.x -= this->_speed * dt;
-    if (sf::Keyboard::isKeyPressed(sf::Keyboard::Right))
+    if (sf::Keyboard::isKeyPressed(sf::Keyboard::Right) || sf::Keyboard::isKeyPressed(sf::Keyboard::D))
         move.x += this->_speed * dt;
 
     this->_paddle.move(move);

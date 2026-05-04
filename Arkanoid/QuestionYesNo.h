@@ -1,11 +1,12 @@
 #pragma once
-
 namespace Arkanoid::EnumScene {
-	enum class SceneType
-	{
+	enum class QuestionYesNo {
 		None = 0,
-		Game,
-		WinGame,
-		MainMenu,
+
+		Yes,
+		No,
+
+		Back,
+		Count
 	};
 }

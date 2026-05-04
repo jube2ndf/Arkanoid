@@ -7,13 +7,14 @@ namespace Arkanoid::Game {
     class Ball : public GameObject
     {
     public:
+        Ball();
         Ball(float radius, sf::Vector2f pos);
 
         void bounceX();
         void bounceY();
 
-        sf::Vector2f getPosition() const;
-        void setPosition(sf::Vector2f pos);
+        sf::Vector2f getPosition() override;
+        void setPosition(sf::Vector2f position) override;
 
         sf::Vector2f getVeloсity() const;
         void setVeloсity(sf::Vector2f vel);
@@ -23,10 +24,10 @@ namespace Arkanoid::Game {
         sf::FloatRect getBounds() const override;
         void update(float dt) override;
         ObjectType getType() const override;
-        void onCollision(GameObject& other) override;
+        float GetSpeed();
     protected:
         sf::CircleShape _ball;
-        sf::Vector2f _moveVector {-1,-1};
-        float _speed = Arkanoid::App::Settings::GAME_BALL_SPEED;
+        sf::Vector2f _moveVector;
+        float _speed;
     };
 }
