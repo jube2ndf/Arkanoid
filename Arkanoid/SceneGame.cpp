@@ -11,9 +11,9 @@ Arkanoid::Scene::Game::SceneGame::SceneGame()
         Arkanoid::App::Settings::WINDOW_WIDTH, Arkanoid::App::Settings::WINDOW_HEIGTH)
     );
     this->background.setPosition(0, 0);
-    this->background.setFillColor(sf::Color(0, 200, 0));
+    this->background.setFillColor(sf::Color::Black);
     this->background.setOutlineThickness(10);
-    this->background.setOutlineColor(sf::Color::Red);
+    this->background.setOutlineColor(sf::Color::Black);
 
     this->_paddle = std::make_unique<Arkanoid::Game::Paddle>(
             200,
@@ -54,7 +54,7 @@ Arkanoid::Scene::SceneCommand Arkanoid::Scene::Game::SceneGame::update(float dt)
     this->_ball->update(dt);
     handleWallCollision();
     handlePaddleCollision();
-    handleBallBrickCollision();
+    this->_managerBrick.handleBallBrickCollision(*this->_ball.get());
     if (this->collidableBrick.empty()) {
         return Scene::SceneCommand(EnumScene::SceneRequest::Push, EnumScene::SceneType::WinGame);
     }
@@ -64,15 +64,9 @@ Arkanoid::Scene::SceneCommand Arkanoid::Scene::Game::SceneGame::update(float dt)
 void Arkanoid::Scene::Game::SceneGame::draw(sf::RenderWindow& window)
 {
     window.draw(this->background);
-    this->_paddle->drow(window);
-    this->_ball->drow(window);
-    for (auto brick = this->collidableBrick.begin();
-        brick != this->collidableBrick.end();
-        brick++
-        )
-    {
-        brick->get()->drow(window);
-    }
+    this->_paddle->draw(window);
+    this->_ball->draw(window);
+    this->_managerBrick.draw(window);
 }
 
 void Arkanoid::Scene::Game::SceneGame::handleWallCollision()
@@ -114,36 +108,6 @@ void Arkanoid::Scene::Game::SceneGame::handleWallCollision()
                 this->_paddle->getPosition().y
             }
         );
-    }
-}
-
-void Arkanoid::Scene::Game::SceneGame::handleBallBrickCollision() {
-    for (auto brick = this->collidableBrick.begin();
-        brick != this->collidableBrick.end();
-        brick++
-        ) {
-        sf::FloatRect bounds = brick->get()->getBounds();
-
-        if (!_ball->getBounds().intersects(brick->get()->getBounds()))
-            continue;
-
-        auto ballBounds = _ball->getBounds();
-        auto brickBounds = (*brick)->getBounds();
-
-        bool hitFromLeft = _ball->getPosition().x + ballBounds.width <= brickBounds.left;
-        bool hitFromRight = _ball->getPosition().x >= brickBounds.left + brickBounds.width;
-
-        if (hitFromLeft || hitFromRight)
-        {
-            _ball->bounceX();
-        }
-        else
-        {
-            _ball->bounceY();
-        }
-
-        brick = collidableBrick.erase(brick);
-        return;
     }
 }
 

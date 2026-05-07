@@ -11,7 +11,18 @@ Arkanoid::Game::Brick::Brick(sf::Vector2f position)
     this->_brick.setPosition(position);
 }
 
-void Arkanoid::Game::Brick::drow(sf::RenderWindow& window)
+Arkanoid::Game::Brick::Brick(sf::Vector2f position, sf::Vector2f size) :
+    Brick(position)
+{
+    this->_brick.setSize(size);
+}
+
+bool Arkanoid::Game::Brick::onHit()
+{
+    return true;
+}
+
+void Arkanoid::Game::Brick::draw(sf::RenderWindow& window)
 {
     window.draw(this->_brick);
 }

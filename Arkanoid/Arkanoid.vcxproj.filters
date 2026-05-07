@@ -31,6 +31,9 @@
     <Filter Include="Файлы заголовков\Game\GameObject">
       <UniqueIdentifier>{8dc63f92-9907-4749-b6ad-7f4a7f40f96a}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Файлы заголовков\Game\GameObject\Brick">
+      <UniqueIdentifier>{7514ce75-236c-400f-9395-0be1bef57504}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -67,6 +70,15 @@
       <Filter>Исходные файлы</Filter>
     </ClCompile>
     <ClCompile Include="WinGame.cpp">
+      <Filter>Исходные файлы</Filter>
+    </ClCompile>
+    <ClCompile Include="BricksManager.cpp">
+      <Filter>Исходные файлы</Filter>
+    </ClCompile>
+    <ClCompile Include="DurableBrick.cpp">
+      <Filter>Исходные файлы</Filter>
+    </ClCompile>
+    <ClCompile Include="BrickFactory.cpp">
       <Filter>Исходные файлы</Filter>
     </ClCompile>
   </ItemGroup>
@@ -116,9 +128,6 @@
     <ClInclude Include="SceneGame.h">
       <Filter>Файлы заголовков\Scene\Scenes</Filter>
     </ClInclude>
-    <ClInclude Include="Brick.h">
-      <Filter>Файлы заголовков\Game\GameObject</Filter>
-    </ClInclude>
     <ClInclude Include="MenuFunctionality.h">
       <Filter>Файлы заголовков\Scene</Filter>
     </ClInclude>
@@ -130,6 +139,21 @@
     </ClInclude>
     <ClInclude Include="WinGame.h">
       <Filter>Файлы заголовков\Scene\Scenes</Filter>
+    </ClInclude>
+    <ClInclude Include="Brick.h">
+      <Filter>Файлы заголовков\Game\GameObject\Brick</Filter>
+    </ClInclude>
+    <ClInclude Include="BricksManager.h">
+      <Filter>Файлы заголовков\Game\GameObject\Brick</Filter>
+    </ClInclude>
+    <ClInclude Include="DurableBrick.h">
+      <Filter>Файлы заголовков\Game\GameObject\Brick</Filter>
+    </ClInclude>
+    <ClInclude Include="BrickFactory.h">
+      <Filter>Файлы заголовков\Game\GameObject\Brick</Filter>
+    </ClInclude>
+    <ClInclude Include="BrickType.h">
+      <Filter>Файлы заголовков\Game\GameObject\Brick</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

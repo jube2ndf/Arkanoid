@@ -5,6 +5,8 @@
 #include "Brick.h"
 #include <list>
 #include "AppSettings.h"
+#include "BricksManager.h"
+
 
 namespace Arkanoid::Scene::Game {
 	class SceneGame: public Interface::IScene
@@ -19,9 +21,9 @@ namespace Arkanoid::Scene::Game {
 	private:
 
 		void handleWallCollision();
-		void handleBallBrickCollision();
 		void handlePaddleCollision();
 		
+		Arkanoid::Game::BricksManager _managerBrick;
 
 		sf::RectangleShape background;
 

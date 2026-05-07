@@ -56,7 +56,7 @@ void Arkanoid::Game::Ball::setVeloсity(sf::Vector2f vel)
     this->_moveVector = vel;
 }
 
-void Arkanoid::Game::Ball::drow(sf::RenderWindow& window)
+void Arkanoid::Game::Ball::draw(sf::RenderWindow& window)
 {
     window.draw(this->_ball);
 }

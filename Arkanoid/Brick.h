@@ -9,9 +9,12 @@ namespace Arkanoid::Game {
     public:
 
         Brick(sf::Vector2f position);
+        Brick(sf::Vector2f position, sf::Vector2f size);
+        
+        virtual bool onHit();
 
         // Унаследовано через GameObject
-        void drow(sf::RenderWindow& window) override;
+        void draw(sf::RenderWindow& window) override;
 
         ObjectType getType() const override;
 
@@ -21,9 +24,7 @@ namespace Arkanoid::Game {
 
         void setPosition(sf::Vector2f position) override;
 
-    private:
+    protected:
         sf::RectangleShape _brick;
-
-        
     };
 }

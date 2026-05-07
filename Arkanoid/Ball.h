@@ -20,7 +20,7 @@ namespace Arkanoid::Game {
         void setVeloсity(sf::Vector2f vel);
 
         // Унаследовано через GameObject
-        void drow(sf::RenderWindow& window) override;
+        void draw(sf::RenderWindow& window) override;
         sf::FloatRect getBounds() const override;
         void update(float dt) override;
         ObjectType getType() const override;

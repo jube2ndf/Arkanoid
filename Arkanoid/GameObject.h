@@ -9,7 +9,7 @@ namespace Arkanoid::Game {
 
 		virtual void update(float dt) {}
 		virtual void onCollision(GameObject& other) {}
-		virtual void drow(sf::RenderWindow& window) = 0;
+		virtual void draw(sf::RenderWindow& window) = 0;
 		virtual ObjectType getType() const = 0;
 
 		virtual sf::Vector2f getPosition() = 0;

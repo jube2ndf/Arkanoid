@@ -24,7 +24,7 @@ void Arkanoid::Game::Paddle::setPosition(sf::Vector2f newP)
     this->_paddle.setPosition(newP);
 }
 
-void Arkanoid::Game::Paddle::drow(sf::RenderWindow& window)
+void Arkanoid::Game::Paddle::draw(sf::RenderWindow& window)
 {
     window.draw(this->_paddle);
 }
