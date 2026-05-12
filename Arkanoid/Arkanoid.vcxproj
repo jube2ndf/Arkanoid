@@ -147,6 +147,7 @@
     <ClCompile Include="SceneGame.cpp" />
     <ClCompile Include="SceneManager.cpp" />
     <ClCompile Include="SceneQuestionYesNo.cpp" />
+    <ClCompile Include="ScoreSystem.cpp" />
     <ClCompile Include="WinGame.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -160,6 +161,7 @@
     <ClInclude Include="CollisionSystem.h" />
     <ClInclude Include="DurableBrick.h" />
     <ClInclude Include="GameObject.h" />
+    <ClInclude Include="IObserver.h" />
     <ClInclude Include="IScene.h" />
     <ClInclude Include="MenuFunctionality.h" />
     <ClInclude Include="ObjectType.h" />
@@ -173,6 +175,8 @@
     <ClInclude Include="SceneQuestionYesNo.h" />
     <ClInclude Include="SceneRequest.h" />
     <ClInclude Include="SceneType.h" />
+    <ClInclude Include="ScoreSystem.h" />
+    <ClInclude Include="Subject.h" />
     <ClInclude Include="WinGame.h" />
   </ItemGroup>
   <ItemGroup>

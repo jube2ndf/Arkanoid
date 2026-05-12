@@ -6,6 +6,7 @@
 #include <list>
 #include "AppSettings.h"
 #include "BricksManager.h"
+#include "ScoreSystem.h"
 
 
 namespace Arkanoid::Scene::Game {
@@ -22,8 +23,12 @@ namespace Arkanoid::Scene::Game {
 
 		void handleWallCollision();
 		void handlePaddleCollision();
-		
+
+
+		Arkanoid::Game::ScoreSystem _scoreObserver;
 		Arkanoid::Game::BricksManager _managerBrick;
+
+		
 
 		sf::RectangleShape background;
 

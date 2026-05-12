@@ -3,6 +3,7 @@
 #include <memory>
 #include "Brick.h"
 #include "Ball.h"
+#include "IObserver.h"
 
 
 namespace Arkanoid::Game {
@@ -12,6 +13,8 @@ namespace Arkanoid::Game {
 		BricksManager();
 		BricksManager(float regionBrickWidth, float regionBrickHeight);
 		BricksManager(float regionBrickWidth, float regionBrickHeight, int level);
+
+		void addObservers(Interface::IObserver* obs);
 
 		void handleBallBrickCollision(Game::Ball& ball);
 

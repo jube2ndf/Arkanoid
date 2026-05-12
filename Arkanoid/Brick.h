@@ -1,10 +1,11 @@
 #pragma once
 #include "GameObject.h"
 #include <SFML/Graphics.hpp>
+#include "Subject.h"
 
 namespace Arkanoid::Game {
     class Brick :
-        public GameObject
+        public GameObject, public Subject
     {
     public:
 

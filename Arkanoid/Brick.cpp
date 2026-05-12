@@ -19,6 +19,7 @@ Arkanoid::Game::Brick::Brick(sf::Vector2f position, sf::Vector2f size) :
 
 bool Arkanoid::Game::Brick::onHit()
 {
+    this->notify(1);
     return true;
 }
 

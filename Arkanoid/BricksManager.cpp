@@ -47,6 +47,13 @@ Arkanoid::Game::BricksManager::BricksManager(float regionBrickWidth, float regio
     }
 }
 
+void Arkanoid::Game::BricksManager::addObservers(Interface::IObserver* obs)
+{
+    for (auto& brick : this->collidableBrick) {
+        brick->addObservers(obs);
+    }
+}
+
 void Arkanoid::Game::BricksManager::handleBallBrickCollision(Game::Ball& ball)
 {
     for (auto brick = this->collidableBrick.begin();

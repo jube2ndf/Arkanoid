@@ -41,6 +41,7 @@ Arkanoid::Scene::Game::SceneGame::SceneGame()
             )
         );
     }
+    this->_managerBrick.addObservers(&this->_scoreObserver);
 }
 
 Arkanoid::Scene::SceneCommand Arkanoid::Scene::Game::SceneGame::handleInput(sf::Event& event)

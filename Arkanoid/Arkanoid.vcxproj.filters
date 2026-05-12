@@ -81,6 +81,9 @@
     <ClCompile Include="BrickFactory.cpp">
       <Filter>Исходные файлы</Filter>
     </ClCompile>
+    <ClCompile Include="ScoreSystem.cpp">
+      <Filter>Исходные файлы</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="resource.h">
@@ -106,9 +109,6 @@
     </ClInclude>
     <ClInclude Include="SceneFactory.h">
       <Filter>Файлы заголовков\Scene</Filter>
-    </ClInclude>
-    <ClInclude Include="SceneManager.h">
-      <Filter>Файлы заголовков</Filter>
     </ClInclude>
     <ClInclude Include="GameObject.h">
       <Filter>Файлы заголовков\Game\GameObject</Filter>
@@ -154,6 +154,18 @@
     </ClInclude>
     <ClInclude Include="BrickType.h">
       <Filter>Файлы заголовков\Game\GameObject\Brick</Filter>
+    </ClInclude>
+    <ClInclude Include="IObserver.h">
+      <Filter>Файлы заголовков\Interface</Filter>
+    </ClInclude>
+    <ClInclude Include="ScoreSystem.h">
+      <Filter>Файлы заголовков\Game</Filter>
+    </ClInclude>
+    <ClInclude Include="Subject.h">
+      <Filter>Файлы заголовков\Game\GameObject</Filter>
+    </ClInclude>
+    <ClInclude Include="SceneManager.h">
+      <Filter>Файлы заголовков\Scene</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
