@@ -20,32 +20,34 @@ Arkanoid::Scene::Game::SceneGame::SceneGame()
             20,
             sf::Vector2f(static_cast<int>(Arkanoid::App::Settings::WINDOW_WIDTH / 2), Arkanoid::App::Settings::WINDOW_HEIGTH - 10)
     );
-
     this->_ball = std::make_unique<Arkanoid::Game::Ball>(
             Arkanoid::App::Settings::GAME_BALL_RADIUS,
             sf::Vector2f(static_cast<int>(Arkanoid::App::Settings::WINDOW_WIDTH / 2), static_cast<int>((Arkanoid::App::Settings::WINDOW_HEIGTH / 2)))
     );
 
-    collidableBrick.clear();
-
-    for (int i = 1; i <= COUNT_BRICK; i++)
-    {
-        sf::Vector2f xy = {
-            static_cast<float>((App::Settings::WINDOW_WIDTH / (COUNT_BRICK + 1)) * i),
-            static_cast<float>(200)
-        };
-        
-        collidableBrick.push_back(
-              std::make_unique<Arkanoid::Game::Brick>(
-                xy
-            )
-        );
-    }
     this->_managerBrick.addObservers(&this->_scoreObserver);
+    auto state = this->_saveManager.load();
+    if (state.bricks.size() != 0) {
+        this->restoreFromMemento(state);
+    }
 }
 
 Arkanoid::Scene::SceneCommand Arkanoid::Scene::Game::SceneGame::handleInput(sf::Event& event)
 {
+    if (event.type == sf::Event::KeyPressed)
+    {
+        if (event.key.code == sf::Keyboard::F5)
+        {
+            auto state = createMemento();
+            _saveManager.save(state);
+        }
+
+        if (event.key.code == sf::Keyboard::F9)
+        {
+            auto state = _saveManager.load();
+            restoreFromMemento(state);
+        }
+    }
     return Scene::SceneCommand();
 }
 
@@ -56,7 +58,7 @@ Arkanoid::Scene::SceneCommand Arkanoid::Scene::Game::SceneGame::update(float dt)
     handleWallCollision();
     handlePaddleCollision();
     this->_managerBrick.handleBallBrickCollision(*this->_ball.get());
-    if (this->collidableBrick.empty()) {
+    if (this->_managerBrick.getCount() == 0) {
         return Scene::SceneCommand(EnumScene::SceneRequest::Push, EnumScene::SceneType::WinGame);
     }
     return Scene::SceneCommand();
@@ -68,6 +70,37 @@ void Arkanoid::Scene::Game::SceneGame::draw(sf::RenderWindow& window)
     this->_paddle->draw(window);
     this->_ball->draw(window);
     this->_managerBrick.draw(window);
+}
+
+GameState Arkanoid::Scene::Game::SceneGame::createMemento()
+{
+    GameState state = this->_managerBrick.getState();
+
+    state.score = this->_scoreObserver.getScore();
+
+    // paddle
+    state.px = _paddle->getPosition().x;
+
+    // ball
+    state.ball_x = _ball->getPosition().x;
+    state.ball_y = _ball->getPosition().y;
+    state.ballmove_x = _ball->getVeloсity().x;
+    state.ballmove_y = _ball->getVeloсity().y;
+
+    return state;
+}
+
+void Arkanoid::Scene::Game::SceneGame::restoreFromMemento(const GameState& state)
+{
+    this->_managerBrick.setState(state);
+    this->_ball->setVeloсity(sf::Vector2f(state.ballmove_x, state.ballmove_y));
+    this->_ball->setPosition(sf::Vector2f(state.ball_x, state.ball_y));
+    this->_paddle->setPosition(
+        sf::Vector2f(
+            state.px,
+            this->_paddle->getPosition().y
+        )
+    );
 }
 
 void Arkanoid::Scene::Game::SceneGame::handleWallCollision()

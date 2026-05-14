@@ -143,6 +143,7 @@
     <ClCompile Include="GameObject.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Paddle.cpp" />
+    <ClCompile Include="SaveSystem.cpp" />
     <ClCompile Include="SceneFactory.cpp" />
     <ClCompile Include="SceneGame.cpp" />
     <ClCompile Include="SceneManager.cpp" />
@@ -154,13 +155,16 @@
     <ClInclude Include="Application.h" />
     <ClInclude Include="AppSettings.h" />
     <ClInclude Include="Ball.h" />
+    <ClInclude Include="Bonus.h" />
     <ClInclude Include="Brick.h" />
+    <ClInclude Include="BrickData.h" />
     <ClInclude Include="BrickFactory.h" />
     <ClInclude Include="BricksManager.h" />
     <ClInclude Include="BrickType.h" />
     <ClInclude Include="CollisionSystem.h" />
     <ClInclude Include="DurableBrick.h" />
     <ClInclude Include="GameObject.h" />
+    <ClInclude Include="GameState.h" />
     <ClInclude Include="IObserver.h" />
     <ClInclude Include="IScene.h" />
     <ClInclude Include="MenuFunctionality.h" />
@@ -168,6 +172,7 @@
     <ClInclude Include="Paddle.h" />
     <ClInclude Include="QuestionYesNo.h" />
     <ClInclude Include="resource.h" />
+    <ClInclude Include="SaveSystem.h" />
     <ClInclude Include="SceneCommand.h" />
     <ClInclude Include="SceneFactory.h" />
     <ClInclude Include="SceneGame.h" />

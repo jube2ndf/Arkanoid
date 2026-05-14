@@ -3,17 +3,24 @@
 #include "Brick.h"
 #include "BrickType.h"
 
-#define MAX_BRICK_HITS 10
+constexpr auto MAX_BRICK_HITS = 10;
 
 namespace Arkanoid::Game {
 	class BrickFactory
 	{
     public:
+        BrickFactory() = default;
+        BrickFactory(const BrickFactory&) = default;
         BrickFactory(sf::Vector2f size);
 
         std::unique_ptr<Brick> create(BrickType type, sf::Vector2f position);
+        std::unique_ptr<Brick> create(BrickData dto);
 
     private:
+        std::unique_ptr<Brick> createNormal(BrickData dto);
+        std::unique_ptr<Brick> createDurable(BrickData dto);
+
+
         sf::Vector2f _size;
 
         const int maxHits = MAX_BRICK_HITS;

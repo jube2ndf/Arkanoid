@@ -1,5 +1,10 @@
 #include "ScoreSystem.h"
 
+void Arkanoid::Game::ScoreSystem::setState(GameState state)
+{
+	this->score = state.score;
+}
+
 void Arkanoid::Game::ScoreSystem::onNotify(int points)
 {
 	this->score += points;

@@ -1,10 +1,10 @@
 #pragma once
 namespace Arkanoid::Game {
     enum class BrickType {
+        EMPTY = 0,
         NORMAL,     // 1 hit
-        STRONG_2,   // 2 hits
-        STRONG_3,   // 3 hits
+        STRONG,   // 2 hits
 
-        RANDOM, // 1-10 hits
+        RANDOM
     };
 }

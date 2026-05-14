@@ -2,6 +2,8 @@
 #include "GameObject.h"
 #include <SFML/Graphics.hpp>
 #include "Subject.h"
+#include "BrickType.h"
+#include "BrickData.h"
 
 namespace Arkanoid::Game {
     class Brick :
@@ -13,11 +15,14 @@ namespace Arkanoid::Game {
         Brick(sf::Vector2f position, sf::Vector2f size);
         
         virtual bool onHit();
+        virtual int getHP();
+        virtual BrickData getData();
 
         // Унаследовано через GameObject
         void draw(sf::RenderWindow& window) override;
 
         ObjectType getType() const override;
+        virtual BrickType getBrickType() const;
 
         sf::FloatRect getBounds() const override;
 

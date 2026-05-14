@@ -7,6 +7,7 @@
 #include "AppSettings.h"
 #include "BricksManager.h"
 #include "ScoreSystem.h"
+#include "SaveSystem.h"
 
 
 namespace Arkanoid::Scene::Game {
@@ -19,23 +20,24 @@ namespace Arkanoid::Scene::Game {
 		Scene::SceneCommand handleInput(sf::Event& event) override;
 		Scene::SceneCommand update(float dt) override;
 		void draw(sf::RenderWindow& window) override;
+
+		
+
 	private:
+		Arkanoid::Game::SaveManager _saveManager;
+		GameState createMemento();
+		void restoreFromMemento(const GameState& state);
 
 		void handleWallCollision();
 		void handlePaddleCollision();
 
-
 		Arkanoid::Game::ScoreSystem _scoreObserver;
 		Arkanoid::Game::BricksManager _managerBrick;
-
-		
 
 		sf::RectangleShape background;
 
 		std::unique_ptr<Arkanoid::Game::Paddle> _paddle;
 
 		std::unique_ptr < Arkanoid::Game::Ball> _ball;
-
-		std::list<std::unique_ptr<Arkanoid::Game::Brick>> collidableBrick{};
 	};
 }

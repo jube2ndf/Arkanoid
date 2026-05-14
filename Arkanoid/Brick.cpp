@@ -23,6 +23,22 @@ bool Arkanoid::Game::Brick::onHit()
     return true;
 }
 
+int Arkanoid::Game::Brick::getHP()
+{
+    return 1;
+}
+
+BrickData Arkanoid::Game::Brick::getData()
+{
+    BrickData dto;
+    auto pos = this->_brick.getPosition();
+    dto.x = static_cast<int>(pos.x);
+    dto.y = static_cast<int>(pos.y);
+    dto.hp = this->getHP();
+    dto.type = static_cast<int>(this->getType());
+    return dto;
+}
+
 void Arkanoid::Game::Brick::draw(sf::RenderWindow& window)
 {
     window.draw(this->_brick);
@@ -31,6 +47,11 @@ void Arkanoid::Game::Brick::draw(sf::RenderWindow& window)
 Arkanoid::Game::ObjectType Arkanoid::Game::Brick::getType() const
 {
     return ObjectType::Brick;
+}
+
+Arkanoid::Game::BrickType Arkanoid::Game::Brick::getBrickType() const
+{
+    return BrickType::NORMAL;
 }
 
 sf::FloatRect Arkanoid::Game::Brick::getBounds() const

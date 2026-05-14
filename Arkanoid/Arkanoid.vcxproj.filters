@@ -34,6 +34,9 @@
     <Filter Include="Файлы заголовков\Game\GameObject\Brick">
       <UniqueIdentifier>{7514ce75-236c-400f-9395-0be1bef57504}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Файлы заголовков\Game\GameObject\DTO">
+      <UniqueIdentifier>{5ef59919-ebce-4dce-a43f-f2152b05d551}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -82,6 +85,9 @@
       <Filter>Исходные файлы</Filter>
     </ClCompile>
     <ClCompile Include="ScoreSystem.cpp">
+      <Filter>Исходные файлы</Filter>
+    </ClCompile>
+    <ClCompile Include="SaveSystem.cpp">
       <Filter>Исходные файлы</Filter>
     </ClCompile>
   </ItemGroup>
@@ -166,6 +172,18 @@
     </ClInclude>
     <ClInclude Include="SceneManager.h">
       <Filter>Файлы заголовков\Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="BrickData.h">
+      <Filter>Файлы заголовков\Game\GameObject\DTO</Filter>
+    </ClInclude>
+    <ClInclude Include="GameState.h">
+      <Filter>Файлы заголовков\Game\GameObject\DTO</Filter>
+    </ClInclude>
+    <ClInclude Include="SaveSystem.h">
+      <Filter>Файлы заголовков\Game</Filter>
+    </ClInclude>
+    <ClInclude Include="Bonus.h">
+      <Filter>Файлы заголовков\Interface</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

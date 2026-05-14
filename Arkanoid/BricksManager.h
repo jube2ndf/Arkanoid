@@ -4,6 +4,8 @@
 #include "Brick.h"
 #include "Ball.h"
 #include "IObserver.h"
+#include "GameState.h"
+#include "BrickFactory.h"
 
 
 namespace Arkanoid::Game {
@@ -20,6 +22,11 @@ namespace Arkanoid::Game {
 
 		void draw(sf::RenderWindow& window);
 
+		int getCount();
+
+		GameState getState();
+		void setState(GameState dto);
+
 	private:
 		const std::vector<std::vector<std::vector<int>>> levels = {
 			{
@@ -34,6 +41,13 @@ namespace Arkanoid::Game {
 			},
 		};
 		
+		std::unique_ptr<BrickFactory> _factory;
+
+		int rows;
+		int cols;
+		float brickWidth;
+		float brickHeight;
+		int lvl;
 		std::list<std::unique_ptr<Arkanoid::Game::Brick>> collidableBrick{};
 	};
 }
