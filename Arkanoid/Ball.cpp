@@ -1,5 +1,7 @@
 #include "Ball.h"
 #include <iostream>
+#include "NormalCollisionStrategy.h"
+#include <memory>
 
 Arkanoid::Game::Ball::Ball()
 {
@@ -8,6 +10,7 @@ Arkanoid::Game::Ball::Ball()
 
 Arkanoid::Game::Ball::Ball(float radius, sf::Vector2f pos)
 {
+    this->_strategy = std::make_unique<Arkanoid::Game::NormalCollisionStrategy>();
     this->_moveVector = { -1,-1 };
     this->_speed = Arkanoid::App::Settings::GAME_BALL_SPEED;
     this->_ball.setRadius(radius);
@@ -56,6 +59,11 @@ void Arkanoid::Game::Ball::setVeloсity(sf::Vector2f vel)
     this->_moveVector = vel;
 }
 
+void Arkanoid::Game::Ball::handleCollision(Game::Brick& brick)
+{
+    this->_strategy->handleCollision(*this, brick);
+}
+
 void Arkanoid::Game::Ball::draw(sf::RenderWindow& window)
 {
     window.draw(this->_ball);
@@ -79,4 +87,10 @@ Arkanoid::Game::ObjectType Arkanoid::Game::Ball::getType() const
 float Arkanoid::Game::Ball::GetSpeed()
 {
     return this->_speed;
+}
+
+void Arkanoid::Game::Ball::setStrategy(std::unique_ptr<Arkanoid::Interface::IBallCollisionStrategy> newStrategy)
+{
+    _strategy.release();
+    _strategy = std::move(newStrategy);
 }

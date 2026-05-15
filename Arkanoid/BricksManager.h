@@ -6,6 +6,7 @@
 #include "IObserver.h"
 #include "GameState.h"
 #include "BrickFactory.h"
+#include "IBrickObserver.h"
 
 
 namespace Arkanoid::Game {
@@ -26,7 +27,7 @@ namespace Arkanoid::Game {
 
 		GameState getState();
 		void setState(GameState dto);
-
+		void addObserver(Interface::IBrickObserver* obs);
 	private:
 		const std::vector<std::vector<std::vector<int>>> levels = {
 			{
@@ -42,6 +43,7 @@ namespace Arkanoid::Game {
 		};
 		
 		std::unique_ptr<BrickFactory> _factory;
+		std::vector<Interface::IBrickObserver*> _observers;
 
 		int rows;
 		int cols;

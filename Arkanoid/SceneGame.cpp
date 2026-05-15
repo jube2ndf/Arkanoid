@@ -2,8 +2,9 @@
 #include "SceneCommand.h"
 #include "CollisionSystem.h"
 #include <iostream>
+#include "StandartBonus.h"
 
-#define COUNT_BRICK 10
+constexpr auto COUNT_BRICK = 10;
 
 Arkanoid::Scene::Game::SceneGame::SceneGame()
 {
@@ -30,6 +31,11 @@ Arkanoid::Scene::Game::SceneGame::SceneGame()
     if (state.bricks.size() != 0) {
         this->restoreFromMemento(state);
     }
+    this->_context.ball = this->_ball.get();
+    this->_context.paddle = this->_paddle.get();
+    this->_context.score = &this->_scoreObserver;
+    this->_context.effects = &this->_effects;
+    _managerBrick.addObserver(this);
 }
 
 Arkanoid::Scene::SceneCommand Arkanoid::Scene::Game::SceneGame::handleInput(sf::Event& event)
@@ -53,16 +59,42 @@ Arkanoid::Scene::SceneCommand Arkanoid::Scene::Game::SceneGame::handleInput(sf::
 
 Arkanoid::Scene::SceneCommand Arkanoid::Scene::Game::SceneGame::update(float dt)
 {
+    // Updating moving objects
     this->_paddle->update(dt);
     this->_ball->update(dt);
+
+    // Collision checking
     handleWallCollision();
     handlePaddleCollision();
     this->_managerBrick.handleBallBrickCollision(*this->_ball.get());
+
+    // Updating bonus
+    for (auto& bonus : _bonuses)
+        bonus->update(dt);
+    for (auto& effect : _effects)
+        effect->update(_context, dt);
+    
+    // Delete old bonus, effects
+    clearBonus();
+    clearEffects();
+
+    for (auto& bonus : _bonuses)
+    {
+        if (bonus->getBounds().intersects(_paddle->getBounds()))
+        {
+            bonus->apply(_context);
+            bonus->kill();
+        }
+    }
+
+    // Win game?
     if (this->_managerBrick.getCount() == 0) {
         return Scene::SceneCommand(EnumScene::SceneRequest::Push, EnumScene::SceneType::WinGame);
     }
     return Scene::SceneCommand();
 }
+
+
 
 void Arkanoid::Scene::Game::SceneGame::draw(sf::RenderWindow& window)
 {
@@ -70,6 +102,8 @@ void Arkanoid::Scene::Game::SceneGame::draw(sf::RenderWindow& window)
     this->_paddle->draw(window);
     this->_ball->draw(window);
     this->_managerBrick.draw(window);
+    for (auto& bonus : this->_bonuses)
+        bonus->draw(window);
 }
 
 GameState Arkanoid::Scene::Game::SceneGame::createMemento()
@@ -182,4 +216,48 @@ void Arkanoid::Scene::Game::SceneGame::handlePaddleCollision()
         });
 }
 
+void Arkanoid::Scene::Game::SceneGame::handleBonusCollision()
+{
+    for (auto& bonus : this->_bonuses)
+    {
+        if (bonus->getBounds().top + bonus->getBounds().height >= App::Settings::WINDOW_HEIGTH)
+        {
+            bonus->kill();
+        }
+        if (bonus->getBounds().intersects(_paddle->getBounds()))
+        {
+            bonus->apply(this->_context);
+            bonus->kill();
+        }
+    }
+}
 
+void Arkanoid::Scene::Game::SceneGame::clearBonus()
+{
+    _bonuses.erase(
+        std::remove_if(_bonuses.begin(), _bonuses.end(),
+            [](auto& b) { return !b->isAlive(); }),
+        _bonuses.end()
+    );
+}
+
+void Arkanoid::Scene::Game::SceneGame::clearEffects()
+{
+    _effects.erase(
+        std::remove_if(_effects.begin(), _effects.end(),
+            [](auto& e) { return !e->isActive(); }),
+        _effects.end()
+    );
+}
+
+void Arkanoid::Scene::Game::SceneGame::onBrickDestroyed(const Event::BrickDestroyedEvent& event)
+{
+    if (rand() % 100 < 30)
+    {
+        _bonuses.push_back(
+            std::make_unique<
+            Arkanoid::Game::StandartBonus
+            >(event.position)
+        );
+    }
+}

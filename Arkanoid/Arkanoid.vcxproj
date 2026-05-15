@@ -140,8 +140,10 @@
     <ClCompile Include="BricksManager.cpp" />
     <ClCompile Include="CollisionSystem.cpp" />
     <ClCompile Include="DurableBrick.cpp" />
+    <ClCompile Include="FireCollisionStrategy.cpp" />
     <ClCompile Include="GameObject.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="NormalCollisionStrategy.cpp" />
     <ClCompile Include="Paddle.cpp" />
     <ClCompile Include="SaveSystem.cpp" />
     <ClCompile Include="SceneFactory.cpp" />
@@ -149,13 +151,18 @@
     <ClCompile Include="SceneManager.cpp" />
     <ClCompile Include="SceneQuestionYesNo.cpp" />
     <ClCompile Include="ScoreSystem.cpp" />
+    <ClCompile Include="StandartBonus.cpp" />
     <ClCompile Include="WinGame.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Application.h" />
     <ClInclude Include="AppSettings.h" />
     <ClInclude Include="Ball.h" />
-    <ClInclude Include="Bonus.h" />
+    <ClInclude Include="BrickDestroyedEvent.h" />
+    <ClInclude Include="EffectType.h" />
+    <ClInclude Include="FireCollisionStrategy.h" />
+    <ClInclude Include="IBallCollisionStrategy.h" />
+    <ClInclude Include="IBonus.h" />
     <ClInclude Include="Brick.h" />
     <ClInclude Include="BrickData.h" />
     <ClInclude Include="BrickFactory.h" />
@@ -163,11 +170,15 @@
     <ClInclude Include="BrickType.h" />
     <ClInclude Include="CollisionSystem.h" />
     <ClInclude Include="DurableBrick.h" />
+    <ClInclude Include="GameContext.h" />
     <ClInclude Include="GameObject.h" />
     <ClInclude Include="GameState.h" />
+    <ClInclude Include="IBrickObserver.h" />
+    <ClInclude Include="IEffect.h" />
     <ClInclude Include="IObserver.h" />
     <ClInclude Include="IScene.h" />
     <ClInclude Include="MenuFunctionality.h" />
+    <ClInclude Include="NormalCollisionStrategy.h" />
     <ClInclude Include="ObjectType.h" />
     <ClInclude Include="Paddle.h" />
     <ClInclude Include="QuestionYesNo.h" />
@@ -181,6 +192,7 @@
     <ClInclude Include="SceneRequest.h" />
     <ClInclude Include="SceneType.h" />
     <ClInclude Include="ScoreSystem.h" />
+    <ClInclude Include="StandartBonus.h" />
     <ClInclude Include="Subject.h" />
     <ClInclude Include="WinGame.h" />
   </ItemGroup>

@@ -37,6 +37,21 @@
     <Filter Include="Файлы заголовков\Game\GameObject\DTO">
       <UniqueIdentifier>{5ef59919-ebce-4dce-a43f-f2152b05d551}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Файлы заголовков\Game\GameObject\Bonus">
+      <UniqueIdentifier>{da436b66-005c-4b06-ba0d-c3453d47da41}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Файлы заголовков\Game\GameObject\Event">
+      <UniqueIdentifier>{bd4d7cc5-a15c-458c-9c5a-aa634142a04a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Файлы заголовков\Game\GameObject\Ball">
+      <UniqueIdentifier>{7b6b9ebd-f91b-4390-9d73-18177136c6c5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Файлы заголовков\Game\GameObject\Ball\Strategy">
+      <UniqueIdentifier>{744788eb-d5a1-4198-ad91-d8903d8cde9c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Файлы заголовков\Game\GameObject\Effects">
+      <UniqueIdentifier>{f1377130-f04b-409b-8220-3fc91119bdc3}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -90,6 +105,15 @@
     <ClCompile Include="SaveSystem.cpp">
       <Filter>Исходные файлы</Filter>
     </ClCompile>
+    <ClCompile Include="NormalCollisionStrategy.cpp">
+      <Filter>Исходные файлы</Filter>
+    </ClCompile>
+    <ClCompile Include="StandartBonus.cpp">
+      <Filter>Исходные файлы</Filter>
+    </ClCompile>
+    <ClCompile Include="FireCollisionStrategy.cpp">
+      <Filter>Исходные файлы</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="resource.h">
@@ -123,9 +147,6 @@
       <Filter>Файлы заголовков\Game\GameObject</Filter>
     </ClInclude>
     <ClInclude Include="ObjectType.h">
-      <Filter>Файлы заголовков\Game\GameObject</Filter>
-    </ClInclude>
-    <ClInclude Include="Ball.h">
       <Filter>Файлы заголовков\Game\GameObject</Filter>
     </ClInclude>
     <ClInclude Include="CollisionSystem.h">
@@ -182,8 +203,38 @@
     <ClInclude Include="SaveSystem.h">
       <Filter>Файлы заголовков\Game</Filter>
     </ClInclude>
-    <ClInclude Include="Bonus.h">
+    <ClInclude Include="IBonus.h">
       <Filter>Файлы заголовков\Interface</Filter>
+    </ClInclude>
+    <ClInclude Include="GameContext.h">
+      <Filter>Файлы заголовков\Game\GameObject\DTO</Filter>
+    </ClInclude>
+    <ClInclude Include="IEffect.h">
+      <Filter>Файлы заголовков\Interface</Filter>
+    </ClInclude>
+    <ClInclude Include="IBrickObserver.h">
+      <Filter>Файлы заголовков\Interface</Filter>
+    </ClInclude>
+    <ClInclude Include="BrickDestroyedEvent.h">
+      <Filter>Файлы заголовков\Game\GameObject\Event</Filter>
+    </ClInclude>
+    <ClInclude Include="Ball.h">
+      <Filter>Файлы заголовков\Game\GameObject\Ball</Filter>
+    </ClInclude>
+    <ClInclude Include="NormalCollisionStrategy.h">
+      <Filter>Файлы заголовков\Game\GameObject\Ball\Strategy</Filter>
+    </ClInclude>
+    <ClInclude Include="IBallCollisionStrategy.h">
+      <Filter>Файлы заголовков\Interface</Filter>
+    </ClInclude>
+    <ClInclude Include="StandartBonus.h">
+      <Filter>Файлы заголовков\Game\GameObject\Bonus</Filter>
+    </ClInclude>
+    <ClInclude Include="FireCollisionStrategy.h">
+      <Filter>Файлы заголовков\Game\GameObject\Ball\Strategy</Filter>
+    </ClInclude>
+    <ClInclude Include="EffectType.h">
+      <Filter>Файлы заголовков\Game\GameObject\Effects</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

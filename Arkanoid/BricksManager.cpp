@@ -2,6 +2,7 @@
 #include <memory>
 #include "BrickFactory.h"
 #include <iostream>
+#include "BrickDestroyedEvent.h"
 
 constexpr auto SIZE_BRICK_ZONE = 0.3;
 
@@ -66,23 +67,18 @@ void Arkanoid::Game::BricksManager::handleBallBrickCollision(Game::Ball& ball)
 
         if (!ball.getBounds().intersects(brick->get()->getBounds()))
             continue;
-
-        auto ballBounds = ball.getBounds();
-        auto brickBounds = (*brick)->getBounds();
-
-        bool hitFromLeft = ball.getPosition().x + ballBounds.width <= brickBounds.left;
-        bool hitFromRight = ball.getPosition().x >= brickBounds.left + brickBounds.width;
-
-        if (hitFromLeft || hitFromRight)
+        ball.handleCollision(*brick->get());
+        if (brick->get()->onHit())
         {
-            ball.bounceX();
-        }
-        else
-        {
-            ball.bounceY();
-        }
-        if(brick->get()->onHit())
+            Event::BrickDestroyedEvent event;
+            event.position = brick->get()->getPosition();
+
+            for (auto* obs : _observers)
+            {
+                obs->onBrickDestroyed(event);
+            }
             brick = this->collidableBrick.erase(brick);
+        }
         return;
     }
 }
@@ -125,4 +121,9 @@ void Arkanoid::Game::BricksManager::setState(GameState dto)
             this->_factory->create(brick)
         );
     }
+}
+
+void Arkanoid::Game::BricksManager::addObserver(Interface::IBrickObserver* obs)
+{
+    _observers.push_back(obs);
 }
