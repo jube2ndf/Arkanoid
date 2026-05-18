@@ -10,7 +10,7 @@ Arkanoid::Game::StandartBonus::StandartBonus(sf::Vector2f pos, std::unique_ptr<I
 
 void Arkanoid::Game::StandartBonus::update(float dt)
 {
-    _shape.move(0.f, _speed * dt);
+    _shape.move(0.f, _speed * std::min(dt, 0.016f));
 
     if (_shape.getPosition().y > App::Settings::WINDOW_HEIGTH)
         _alive = false;

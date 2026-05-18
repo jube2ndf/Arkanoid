@@ -3,6 +3,7 @@
 #include "CollisionSystem.h"
 #include <iostream>
 #include "StandartBonus.h"
+#include "EffectType.h"
 
 constexpr auto COUNT_BRICK = 10;
 
@@ -160,23 +161,6 @@ void Arkanoid::Scene::Game::SceneGame::handleWallCollision()
     {
         _ball->bounceY();//GameOver
     }
-
-    bounds = this->_paddle->getBounds();
-
-    if (bounds.left < 0.f)
-    {
-        this->_paddle->setPosition({ bounds.width / 2.f, this->_paddle->getPosition().y });
-    }
-
-    if (bounds.left + bounds.width> App::Settings::WINDOW_WIDTH)
-    {
-        this->_paddle->setPosition(
-            {
-                App::Settings::WINDOW_WIDTH - bounds.width / 2.f,
-                this->_paddle->getPosition().y
-            }
-        );
-    }
 }
 
 void Arkanoid::Scene::Game::SceneGame::handlePaddleCollision()
@@ -252,12 +236,13 @@ void Arkanoid::Scene::Game::SceneGame::clearEffects()
 
 void Arkanoid::Scene::Game::SceneGame::onBrickDestroyed(const Event::BrickDestroyedEvent& event)
 {
-    if (rand() % 100 < 30)
+    if (rand() % 100 < 90)
     {
         _bonuses.push_back(
-            std::make_unique<
-            Arkanoid::Game::StandartBonus
-            >(event.position)
+            std::make_unique<Arkanoid::Game::StandartBonus>(
+                event.position, 
+                _effectsFactory.create(Arkanoid::Game::EffectType::RUNDOM)
+            )
         );
     }
 }

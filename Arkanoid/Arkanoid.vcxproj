@@ -140,6 +140,9 @@
     <ClCompile Include="BricksManager.cpp" />
     <ClCompile Include="CollisionSystem.cpp" />
     <ClCompile Include="DurableBrick.cpp" />
+    <ClCompile Include="EffectFactory.cpp" />
+    <ClCompile Include="PaddleStateEffect.cpp" />
+    <ClCompile Include="FireBallEffect.cpp" />
     <ClCompile Include="FireCollisionStrategy.cpp" />
     <ClCompile Include="GameObject.cpp" />
     <ClCompile Include="main.cpp" />
@@ -159,7 +162,10 @@
     <ClInclude Include="AppSettings.h" />
     <ClInclude Include="Ball.h" />
     <ClInclude Include="BrickDestroyedEvent.h" />
+    <ClInclude Include="EffectFactory.h" />
+    <ClInclude Include="PaddleStateEffect.h" />
     <ClInclude Include="EffectType.h" />
+    <ClInclude Include="FireBallEffect.h" />
     <ClInclude Include="FireCollisionStrategy.h" />
     <ClInclude Include="IBallCollisionStrategy.h" />
     <ClInclude Include="IBonus.h" />
@@ -181,6 +187,7 @@
     <ClInclude Include="NormalCollisionStrategy.h" />
     <ClInclude Include="ObjectType.h" />
     <ClInclude Include="Paddle.h" />
+    <ClInclude Include="PaddleState.h" />
     <ClInclude Include="QuestionYesNo.h" />
     <ClInclude Include="resource.h" />
     <ClInclude Include="SaveSystem.h" />

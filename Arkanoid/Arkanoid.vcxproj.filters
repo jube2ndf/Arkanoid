@@ -52,6 +52,9 @@
     <Filter Include="Файлы заголовков\Game\GameObject\Effects">
       <UniqueIdentifier>{f1377130-f04b-409b-8220-3fc91119bdc3}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Файлы заголовков\Game\GameObject\Paddle">
+      <UniqueIdentifier>{95e45684-5ca0-42a2-928c-b6d47b43a1ff}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -114,6 +117,15 @@
     <ClCompile Include="FireCollisionStrategy.cpp">
       <Filter>Исходные файлы</Filter>
     </ClCompile>
+    <ClCompile Include="EffectFactory.cpp">
+      <Filter>Исходные файлы</Filter>
+    </ClCompile>
+    <ClCompile Include="FireBallEffect.cpp">
+      <Filter>Исходные файлы</Filter>
+    </ClCompile>
+    <ClCompile Include="PaddleStateEffect.cpp">
+      <Filter>Исходные файлы</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="resource.h">
@@ -141,9 +153,6 @@
       <Filter>Файлы заголовков\Scene</Filter>
     </ClInclude>
     <ClInclude Include="GameObject.h">
-      <Filter>Файлы заголовков\Game\GameObject</Filter>
-    </ClInclude>
-    <ClInclude Include="Paddle.h">
       <Filter>Файлы заголовков\Game\GameObject</Filter>
     </ClInclude>
     <ClInclude Include="ObjectType.h">
@@ -234,6 +243,21 @@
       <Filter>Файлы заголовков\Game\GameObject\Ball\Strategy</Filter>
     </ClInclude>
     <ClInclude Include="EffectType.h">
+      <Filter>Файлы заголовков\Game\GameObject\Effects</Filter>
+    </ClInclude>
+    <ClInclude Include="EffectFactory.h">
+      <Filter>Файлы заголовков\Game\GameObject\Effects</Filter>
+    </ClInclude>
+    <ClInclude Include="FireBallEffect.h">
+      <Filter>Файлы заголовков\Game\GameObject\Effects</Filter>
+    </ClInclude>
+    <ClInclude Include="Paddle.h">
+      <Filter>Файлы заголовков\Game\GameObject\Paddle</Filter>
+    </ClInclude>
+    <ClInclude Include="PaddleState.h">
+      <Filter>Файлы заголовков\Game\GameObject\Paddle</Filter>
+    </ClInclude>
+    <ClInclude Include="PaddleStateEffect.h">
       <Filter>Файлы заголовков\Game\GameObject\Effects</Filter>
     </ClInclude>
   </ItemGroup>

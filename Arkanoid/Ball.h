@@ -28,7 +28,7 @@ namespace Arkanoid::Game {
         float GetSpeed();
         void setStrategy(std::unique_ptr<Arkanoid::Interface::IBallCollisionStrategy> newStrategy);
     protected:
-        std::unique_ptr<Arkanoid::Interface::IBallCollisionStrategy> _strategy;
+        std::unique_ptr<Arkanoid::Interface::IBallCollisionStrategy> _strategyBallBrickCollision;
         sf::CircleShape _ball;
         sf::Vector2f _moveVector;
         float _speed;

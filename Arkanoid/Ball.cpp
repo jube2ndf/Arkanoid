@@ -10,7 +10,7 @@ Arkanoid::Game::Ball::Ball()
 
 Arkanoid::Game::Ball::Ball(float radius, sf::Vector2f pos)
 {
-    this->_strategy = std::make_unique<Arkanoid::Game::NormalCollisionStrategy>();
+    this->_strategyBallBrickCollision = std::make_unique<Arkanoid::Game::NormalCollisionStrategy>();
     this->_moveVector = { -1,-1 };
     this->_speed = Arkanoid::App::Settings::GAME_BALL_SPEED;
     this->_ball.setRadius(radius);
@@ -61,7 +61,7 @@ void Arkanoid::Game::Ball::setVeloсity(sf::Vector2f vel)
 
 void Arkanoid::Game::Ball::handleCollision(Game::Brick& brick)
 {
-    this->_strategy->handleCollision(*this, brick);
+    this->_strategyBallBrickCollision->handleCollision(*this, brick);
 }
 
 void Arkanoid::Game::Ball::draw(sf::RenderWindow& window)
@@ -76,7 +76,7 @@ sf::FloatRect Arkanoid::Game::Ball::getBounds() const
 
 void Arkanoid::Game::Ball::update(float dt)
 {
-    this->_ball.move(this->_moveVector * dt * this->_speed);
+    this->_ball.move(this->_moveVector * std::min(dt, 0.016f) * this->_speed);
 }
 
 Arkanoid::Game::ObjectType Arkanoid::Game::Ball::getType() const
@@ -91,6 +91,6 @@ float Arkanoid::Game::Ball::GetSpeed()
 
 void Arkanoid::Game::Ball::setStrategy(std::unique_ptr<Arkanoid::Interface::IBallCollisionStrategy> newStrategy)
 {
-    _strategy.release();
-    _strategy = std::move(newStrategy);
+    _strategyBallBrickCollision.release();
+    _strategyBallBrickCollision = std::move(newStrategy);
 }

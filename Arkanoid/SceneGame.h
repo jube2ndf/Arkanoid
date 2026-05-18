@@ -12,6 +12,7 @@
 #include "IEffect.h"
 #include "GameContext.h"
 #include "IBrickObserver.h"
+#include "EffectFactory.h"
 
 
 namespace Arkanoid::Scene::Game {
@@ -43,6 +44,7 @@ namespace Arkanoid::Scene::Game {
 		std::vector<std::unique_ptr<Interface::IBonus>> _bonuses;
 		std::vector<std::unique_ptr<Interface::IEffect>> _effects;
 		Arkanoid::Game::ScoreSystem _scoreObserver;
+		Arkanoid::Game::EffectFactory _effectsFactory;
 		Arkanoid::Game::BricksManager _managerBrick;
 
 		sf::RectangleShape background;
