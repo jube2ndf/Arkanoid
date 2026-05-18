@@ -28,7 +28,7 @@ std::unique_ptr<Arkanoid::Interface::IEffect> Arkanoid::Game::EffectFactory::cre
 
 std::unique_ptr<Arkanoid::Interface::IEffect> Arkanoid::Game::EffectFactory::createFireBall()
 {
-    return std::make_unique<FireBallEffect>(20);
+    return std::make_unique<FireBallEffect>();
 }
 
 std::unique_ptr<Arkanoid::Interface::IEffect> Arkanoid::Game::EffectFactory::createSizePaddle()

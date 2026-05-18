@@ -1,7 +1,7 @@
 #include "PaddleStateEffect.h"
 
 Arkanoid::Game::PaddleStateEffect::PaddleStateEffect(PaddleState state)
-	:IEffect(20)
+	:IEffect()
 {
 	this->_state = state;
 }

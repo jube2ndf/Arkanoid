@@ -236,7 +236,7 @@ void Arkanoid::Scene::Game::SceneGame::clearEffects()
 
 void Arkanoid::Scene::Game::SceneGame::onBrickDestroyed(const Event::BrickDestroyedEvent& event)
 {
-    if (rand() % 100 < 90)
+    if (rand() % 100 < 10)
     {
         _bonuses.push_back(
             std::make_unique<Arkanoid::Game::StandartBonus>(
