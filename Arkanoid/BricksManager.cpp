@@ -3,6 +3,7 @@
 #include "BrickFactory.h"
 #include <iostream>
 #include "BrickDestroyedEvent.h"
+#include "GameContext.h"
 
 constexpr auto SIZE_BRICK_ZONE = 0.3;
 
@@ -38,7 +39,7 @@ Arkanoid::Game::BricksManager::BricksManager(float regionBrickWidth, float regio
             {
                 this->collidableBrick.push_back(
                     this->_factory->create(
-                        BrickType::RANDOM, 
+                        BrickType::NORMAL, 
                         sf::Vector2f(
                             offsetX + x * brickWidth,
                             y* brickHeight

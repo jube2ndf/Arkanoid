@@ -23,6 +23,8 @@ std::unique_ptr<Arkanoid::Interface::IEffect> Arkanoid::Game::EffectFactory::cre
 		return this->createSizePaddle();
 	case Arkanoid::Game::EffectType::FasterPaddle:
 		return this->createSpeedPaddle();
+	default:
+		return this->createFireBall();
 	}
 }
 

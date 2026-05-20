@@ -136,6 +136,9 @@ void Arkanoid::Scene::Game::SceneGame::restoreFromMemento(const GameState& state
             this->_paddle->getPosition().y
         )
     );
+    this->_scoreObserver.setState(state);
+    this->_managerBrick.addObservers(&this->_scoreObserver);
+    _managerBrick.addObserver(this);
 }
 
 void Arkanoid::Scene::Game::SceneGame::handleWallCollision()
@@ -238,6 +241,7 @@ void Arkanoid::Scene::Game::SceneGame::onBrickDestroyed(const Event::BrickDestro
 {
     if (rand() % 100 < 10)
     {
+        std::cout << "Create bonus" << "\n";
         _bonuses.push_back(
             std::make_unique<Arkanoid::Game::StandartBonus>(
                 event.position, 

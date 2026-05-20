@@ -5,6 +5,7 @@ namespace Arkanoid::Game {
         public Interface::IEffect
     {
     public:
+        FireBallEffect();
         FireBallEffect(float duration);
         // Унаследовано через IEffect
         void onApply(Game::GameContext& ctx) override;

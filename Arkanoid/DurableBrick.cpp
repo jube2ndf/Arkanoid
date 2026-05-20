@@ -26,6 +26,7 @@ bool Arkanoid::Game::DurableBrick::onHit()
 {
 	this->hitPoint--;
 	if (this->hitPoint == 0) {
+		this->notify(this->_damageColor.size());
 		return true;
 	}
 	this->_brick.setFillColor(this->_damageColor[this->hitPoint - 1]);

@@ -4,7 +4,7 @@
 namespace Arkanoid::Interface {
 	class IEffect {
     public:
-        IEffect() : _duration(rand() % 10 + 5) {}
+        IEffect() : _duration(rand() % 6 + 5) {}
         IEffect(float duration) : _duration(duration) {}
 
         virtual ~IEffect() = default;

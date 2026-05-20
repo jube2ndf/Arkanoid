@@ -91,6 +91,5 @@ float Arkanoid::Game::Ball::GetSpeed()
 
 void Arkanoid::Game::Ball::setStrategy(std::unique_ptr<Arkanoid::Interface::IBallCollisionStrategy> newStrategy)
 {
-    _strategyBallBrickCollision.release();
     _strategyBallBrickCollision = std::move(newStrategy);
 }

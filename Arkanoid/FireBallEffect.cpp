@@ -2,6 +2,12 @@
 #include "FireCollisionStrategy.h"
 #include "NormalCollisionStrategy.h"
 
+Arkanoid::Game::FireBallEffect::FireBallEffect()
+	:IEffect()
+{
+
+}
+
 Arkanoid::Game::FireBallEffect::FireBallEffect(float duration)
 	:IEffect(duration)
 {

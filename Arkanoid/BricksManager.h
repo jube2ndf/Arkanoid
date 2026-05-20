@@ -7,6 +7,7 @@
 #include "GameState.h"
 #include "BrickFactory.h"
 #include "IBrickObserver.h"
+#include "GameContext.h"
 
 
 namespace Arkanoid::Game {

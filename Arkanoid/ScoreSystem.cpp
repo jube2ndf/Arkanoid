@@ -1,4 +1,5 @@
 #include "ScoreSystem.h"
+#include "iostream"
 
 void Arkanoid::Game::ScoreSystem::setState(GameState state)
 {
@@ -8,6 +9,7 @@ void Arkanoid::Game::ScoreSystem::setState(GameState state)
 void Arkanoid::Game::ScoreSystem::onNotify(int points)
 {
 	this->score += points;
+	std::cout << this->score << "\n";
 }
 
 int Arkanoid::Game::ScoreSystem::getScore()
