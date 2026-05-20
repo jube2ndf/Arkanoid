@@ -141,6 +141,7 @@
     <ClCompile Include="CollisionSystem.cpp" />
     <ClCompile Include="DurableBrick.cpp" />
     <ClCompile Include="EffectFactory.cpp" />
+    <ClCompile Include="GameOver.cpp" />
     <ClCompile Include="PaddleStateEffect.cpp" />
     <ClCompile Include="FireBallEffect.cpp" />
     <ClCompile Include="FireCollisionStrategy.cpp" />
@@ -148,6 +149,7 @@
     <ClCompile Include="main.cpp" />
     <ClCompile Include="NormalCollisionStrategy.cpp" />
     <ClCompile Include="Paddle.cpp" />
+    <ClCompile Include="RecordSystem.cpp" />
     <ClCompile Include="SaveSystem.cpp" />
     <ClCompile Include="SceneFactory.cpp" />
     <ClCompile Include="SceneGame.cpp" />
@@ -163,6 +165,7 @@
     <ClInclude Include="Ball.h" />
     <ClInclude Include="BrickDestroyedEvent.h" />
     <ClInclude Include="EffectFactory.h" />
+    <ClInclude Include="GameOver.h" />
     <ClInclude Include="PaddleStateEffect.h" />
     <ClInclude Include="EffectType.h" />
     <ClInclude Include="FireBallEffect.h" />
@@ -189,6 +192,8 @@
     <ClInclude Include="Paddle.h" />
     <ClInclude Include="PaddleState.h" />
     <ClInclude Include="QuestionYesNo.h" />
+    <ClInclude Include="Record.h" />
+    <ClInclude Include="RecordSystem.h" />
     <ClInclude Include="resource.h" />
     <ClInclude Include="SaveSystem.h" />
     <ClInclude Include="SceneCommand.h" />

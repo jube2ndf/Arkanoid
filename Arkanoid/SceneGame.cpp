@@ -4,6 +4,7 @@
 #include <iostream>
 #include "StandartBonus.h"
 #include "EffectType.h"
+#include "RecordSystem.h"
 
 constexpr auto COUNT_BRICK = 10;
 
@@ -65,7 +66,11 @@ Arkanoid::Scene::SceneCommand Arkanoid::Scene::Game::SceneGame::update(float dt)
     this->_ball->update(dt);
 
     // Collision checking
-    handleWallCollision();
+    auto gameover = handleWallCollision();
+    if (gameover.getAction() != EnumScene::SceneRequest::None) {
+        App::RecordSystem::addRecord(Record(this->_scoreObserver.getScore()));
+        return gameover;
+    }
     handlePaddleCollision();
     this->_managerBrick.handleBallBrickCollision(*this->_ball.get());
 
@@ -141,7 +146,7 @@ void Arkanoid::Scene::Game::SceneGame::restoreFromMemento(const GameState& state
     _managerBrick.addObserver(this);
 }
 
-void Arkanoid::Scene::Game::SceneGame::handleWallCollision()
+Arkanoid::Scene::SceneCommand Arkanoid::Scene::Game::SceneGame::handleWallCollision()
 {
     auto bounds = _ball->getBounds();
 
@@ -162,8 +167,13 @@ void Arkanoid::Scene::Game::SceneGame::handleWallCollision()
 
     if (bounds.top + bounds.height >= App::Settings::WINDOW_HEIGTH)
     {
+        return Arkanoid::Scene::SceneCommand(
+            EnumScene::SceneRequest::Push,
+            EnumScene::SceneType::GameOver
+        );
         _ball->bounceY();//GameOver
     }
+    return Arkanoid::Scene::SceneCommand();
 }
 
 void Arkanoid::Scene::Game::SceneGame::handlePaddleCollision()

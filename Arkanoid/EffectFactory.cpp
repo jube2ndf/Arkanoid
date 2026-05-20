@@ -11,7 +11,7 @@ std::unique_ptr<Arkanoid::Interface::IEffect> Arkanoid::Game::EffectFactory::cre
 		type == Arkanoid::Game::EffectType::COUNT
 		)
 	{
-		i = 1;// rand() % (static_cast<int>(Arkanoid::Game::EffectType::COUNT) - 1) + 1;
+		i = rand() % (static_cast<int>(Arkanoid::Game::EffectType::COUNT) - 1) + 1;
 		std::cout << i << "\n";
 	}
 

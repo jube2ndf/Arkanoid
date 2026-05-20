@@ -126,6 +126,12 @@
     <ClCompile Include="PaddleStateEffect.cpp">
       <Filter>Исходные файлы</Filter>
     </ClCompile>
+    <ClCompile Include="RecordSystem.cpp">
+      <Filter>Исходные файлы</Filter>
+    </ClCompile>
+    <ClCompile Include="GameOver.cpp">
+      <Filter>Исходные файлы</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="resource.h">
@@ -259,6 +265,15 @@
     </ClInclude>
     <ClInclude Include="PaddleStateEffect.h">
       <Filter>Файлы заголовков\Game\GameObject\Effects</Filter>
+    </ClInclude>
+    <ClInclude Include="RecordSystem.h">
+      <Filter>Файлы заголовков</Filter>
+    </ClInclude>
+    <ClInclude Include="Record.h">
+      <Filter>Файлы заголовков\Game\GameObject\DTO</Filter>
+    </ClInclude>
+    <ClInclude Include="GameOver.h">
+      <Filter>Файлы заголовков\Scene\Scenes</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

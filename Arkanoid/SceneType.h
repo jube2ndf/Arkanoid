@@ -6,6 +6,7 @@ namespace Arkanoid::EnumScene {
 		None = 0,
 		Game,
 		WinGame,
+		GameOver,
 		MainMenu,
 	};
 }

@@ -15,7 +15,7 @@ namespace Arkanoid::Scene {
         Scene::SceneCommand handleInput(sf::Event& event) override;
         Scene::SceneCommand update(float dt) override;
         void draw(sf::RenderWindow& window) override;
-
+        virtual void drawExtra(sf::RenderWindow& window) {}
     protected:
 
         sf::Font _font;

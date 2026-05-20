@@ -4,6 +4,7 @@
 #include "SceneManager.h"
 #include "SceneGame.h"
 #include "WinGame.h"
+#include "GameOver.h"
 #include <iostream>
 
 Arkanoid::App::Application::Application(const std::string& appName)
@@ -25,6 +26,7 @@ void Arkanoid::App::Application::Run()
     {
         factory.RegisterScene<Scene::Game::SceneGame>(EnumScene::SceneType::Game);
         factory.RegisterScene<Scene::WinGame>(EnumScene::SceneType::WinGame);
+        factory.RegisterScene<Scene::GameOver>(EnumScene::SceneType::GameOver);
     }
     Scene::SceneManager sceneManager(factory);
 

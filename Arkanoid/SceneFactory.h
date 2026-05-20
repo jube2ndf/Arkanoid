@@ -18,7 +18,6 @@ namespace Arkanoid::Scene {
                 {
                     return std::make_unique<T>();
                 };
-
         }
 
 		std::unique_ptr<Arkanoid::Interface::IScene> Create(EnumScene::SceneType stateID);

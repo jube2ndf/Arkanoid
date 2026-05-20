@@ -34,7 +34,7 @@ namespace Arkanoid::Scene::Game {
 		GameState createMemento();
 		void restoreFromMemento(const GameState& state);
 
-		void handleWallCollision();
+		Scene::SceneCommand handleWallCollision();
 		void handlePaddleCollision();
 		void handleBonusCollision();
 

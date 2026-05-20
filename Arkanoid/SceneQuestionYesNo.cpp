@@ -7,8 +7,8 @@ Arkanoid::Scene::SceneQuestionYesNo::SceneQuestionYesNo(std::string question)
 	assert(this->_font.loadFromFile(App::Settings::FONTS_PATH + "Roboto-Black.ttf"));
 
 	float middleX = static_cast<float>(App::Settings::WINDOW_WIDTH) / 2;
-	float y_start_text = static_cast<float>(App::Settings::WINDOW_WIDTH) * 1 / 5;
-	float y_step_text = static_cast<float>(App::Settings::WINDOW_WIDTH) / 5;
+	float y_start_text = static_cast<float>(App::Settings::WINDOW_WIDTH) * 1 / 10;
+	float y_step_text = static_cast<float>(App::Settings::WINDOW_WIDTH) / 12;
 
 	this->_question.setFillColor(sf::Color::White);
 	this->_question.setString(question);
@@ -18,6 +18,8 @@ Arkanoid::Scene::SceneQuestionYesNo::SceneQuestionYesNo(std::string question)
 	this->_question.setOrigin(bounds.left + bounds.width / 2.0f,
 		bounds.top + bounds.height / 2.0f);
 	this->_question.setPosition(middleX, y_start_text);
+
+	y_start_text = static_cast<float>(App::Settings::WINDOW_WIDTH) * 5 / 9;
 
 	for (int i = 0; i < this->_textMenuOptions.size(); i++) {
 		sf::Text text;
@@ -55,4 +57,5 @@ void Arkanoid::Scene::SceneQuestionYesNo::draw(sf::RenderWindow& window)
 	window.draw(this->_question);
 	for (auto& text : this->_menuOptions)
 		window.draw(text);
+	drawExtra(window);
 }
