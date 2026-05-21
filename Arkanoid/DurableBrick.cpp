@@ -51,6 +51,6 @@ BrickData Arkanoid::Game::DurableBrick::getData()
 	dto.x = static_cast<int>(pos.x);
 	dto.y = static_cast<int>(pos.y);
 	dto.hp = this->hitPoint;
-	dto.type = static_cast<int>(this->getType());
+	dto.type = static_cast<int>(this->getBrickType());
 	return dto;
 }

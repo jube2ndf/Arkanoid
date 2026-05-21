@@ -95,6 +95,7 @@ Arkanoid::Scene::SceneCommand Arkanoid::Scene::Game::SceneGame::update(float dt)
 
     // Win game?
     if (this->_managerBrick.getCount() == 0) {
+        App::RecordSystem::addRecord(Record(this->_scoreObserver.getScore()));
         return Scene::SceneCommand(EnumScene::SceneRequest::Push, EnumScene::SceneType::WinGame);
     }
     return Scene::SceneCommand();

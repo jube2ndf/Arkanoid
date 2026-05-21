@@ -8,13 +8,13 @@
 constexpr auto SIZE_BRICK_ZONE = 0.3;
 
 Arkanoid::Game::BricksManager::BricksManager()
-    :BricksManager(App::Settings::WINDOW_WIDTH, App::Settings::WINDOW_HEIGTH * SIZE_BRICK_ZONE, rand() % (this->levels.size() - 0 + 1))
+    :BricksManager(App::Settings::WINDOW_WIDTH, App::Settings::WINDOW_HEIGTH * SIZE_BRICK_ZONE, rand() % (this->levels.size()))
 {
 
 }
 
 Arkanoid::Game::BricksManager::BricksManager(float regionBrickWidth, float regionBrickHeight)
-    :BricksManager(regionBrickWidth, regionBrickHeight, rand() % (this->levels.size() - 0 + 1))
+    :BricksManager(regionBrickWidth, regionBrickHeight, rand() % (this->levels.size()))
 {
 
 }
@@ -39,7 +39,7 @@ Arkanoid::Game::BricksManager::BricksManager(float regionBrickWidth, float regio
             {
                 this->collidableBrick.push_back(
                     this->_factory->create(
-                        BrickType::NORMAL, 
+                        BrickType::RANDOM, 
                         sf::Vector2f(
                             offsetX + x * brickWidth,
                             y* brickHeight
