@@ -30,18 +30,8 @@ namespace Arkanoid::Game {
 		void setState(GameState dto);
 		void addObserver(Interface::IBrickObserver* obs);
 	private:
-		const std::vector<std::vector<std::vector<int>>> levels = {
-			{
-				{1,1,1,1,1,1,1,1},
-				{1,0,0,0,0,0,0,1},
-				{1,1,1,1,1,1,1,1}
-			},
-			{
-				{1,1,1,1,1,1,1,1},
-				{1,1,1,1,1,1,1,1},
-				{1,1,1,1,1,1,1,1}
-			},
-		};
+		static const std::vector<std::vector<std::vector<int>>> levels;
+		
 		
 		std::unique_ptr<BrickFactory> _factory;
 		std::vector<Interface::IBrickObserver*> _observers;

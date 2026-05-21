@@ -6,6 +6,18 @@
 #include "GameContext.h"
 
 constexpr auto SIZE_BRICK_ZONE = 0.3;
+const std::vector<std::vector<std::vector<int>>> Arkanoid::Game::BricksManager::levels = {
+    {
+        {1,1,1,1,1,1,1,1},
+        {1,0,0,0,0,0,0,1},
+        {1,1,1,1,1,1,1,1}
+    },
+    {
+        {1,1,1,1,1,1,1,1},
+        {1,1,1,1,1,1,1,1},
+        {1,1,1,1,1,1,1,1}
+    },
+};
 
 Arkanoid::Game::BricksManager::BricksManager()
     :BricksManager(App::Settings::WINDOW_WIDTH, App::Settings::WINDOW_HEIGTH * SIZE_BRICK_ZONE, rand() % (this->levels.size()))
